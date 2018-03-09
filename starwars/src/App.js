@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
 import './App.css';
 import {Card} from './Card/Card.js';
-
+import PropTypes from 'prop-types';
 class App extends Component {
+  
   constructor() {
     super();
     this.state = {
       starwarsChars: []
     };
+    
   }
+
+
+
   componentDidMount() {
     // feel free to research what this code is doing.
     // At a high level we are calling an API to fetch some starwars data from the open web.
@@ -24,6 +29,8 @@ class App extends Component {
         throw new Error(err);
       });
   }
+
+
   render() {
     return (
       <div className="App">
@@ -36,5 +43,9 @@ class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  starwarsChars: PropTypes.string
+};
 
 export default App;
